@@ -1,152 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wonderland Game</title>
+    <title>Pays des Merveilles - Jeu de Traître</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
             color: #333;
-            text-align: center;
         }
-        h1 {
-            color: #8a2be2;
-        }
-        .player {
-            display: inline-block;
-            margin: 20px;
-            padding: 10px;
-            border: 2px solid #8a2be2;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 2px 2px 12px #aaa;
-        }
-        img {
-            width: 150px;
-            height: auto;
-            border-radius: 10px;
-        }
-        .hint, .mission {
-            margin: 20px;
-            padding: 10px;
-            border: 1px solid #8a2be2;
-            border-radius: 8px;
-            background-color: #fff;
-            display: none; /* Hidden by default */
+        .mission {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #8a2be2;
+            background-color: #007BFF;
+            color: white;
             border: none;
-            border-radius: 5px;
+            padding: 10px;
             cursor: pointer;
+            border-radius: 5px;
         }
         button:hover {
-            background-color: #7a2be2;
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-
-    <h1>Welcome to Wonderland!</h1>
-    <h2>Game Master: Cheshire Cat (You)</h2>
-    <p>Get ready to embark on a whimsical adventure through Wonderland!</p>
-
-    <h3>Players:</h3>
-    <div class="player">
-        <h4>Mehdi</h4>
-        <img src="https://via.placeholder.com/150?text=Mehdi" alt="Mehdi">
-    </div>
-    <div class="player">
-        <h4>Saif</h4>
-        <img src="https://via.placeholder.com/150?text=Saif" alt="Saif">
-    </div>
-    <div class="player">
-        <h4>Rania</h4>
-        <img src="https://via.placeholder.com/150?text=Rania" alt="Rania">
-    </div>
-    <div class="player">
-        <h4>Reda</h4>
-        <img src="https://via.placeholder.com/150?text=Reda" alt="Reda">
-    </div>
-    <div class="player">
-        <h4>Hamza</h4>
-        <img src="https://via.placeholder.com/150?text=Hamza" alt="Hamza">
-    </div>
-    <div class="player">
-        <h4>Imad</h4>
-        <img src="https://via.placeholder.com/150?text=Imad" alt="Imad">
-    </div>
-    <div class="player">
-        <h4>Lena</h4>
-        <img src="https://via.placeholder.com/150?text=Lena" alt="Lena">
-    </div>
-    <div class="player">
-        <h4>Hassan</h4>
-        <img src="https://via.placeholder.com/150?text=Hassan" alt="Hassan">
-    </div>
-    <div class="player">
-        <h4>Hassan (again)</h4>
-        <img src="https://via.placeholder.com/150?text=Hassan" alt="Hassan">
-    </div>
-
-    <h3>Let the game begin!</h3>
-    <p>The Cheshire Cat will guide you through this magical adventure. Follow the clues and enjoy your time in Wonderland!</p>
-
-    <div class="mission" id="mission-box">
-        <h4>Current Mission:</h4>
-        <p id="mission-text"></p>
-    </div>
-
-    <button id="mission-button">Reveal Mission</button>
+    <h1>Pays des Merveilles - Jeu de Traître</h1>
     
-    <div class="hint" id="hint-box">
-        <h4>Hint:</h4>
-        <p id="hint-text"></p>
+    <div id="missions">
+        <!-- Missions will be injected here -->
     </div>
-    
-    <button id="hint-button">Get a Hint</button>
 
     <script>
         const missions = [
-            "Find the key to the Mad Hatter's tea party hidden under a mushroom!",
-            "Collect 3 flowers to create a potion for the Queen of Hearts!",
-            "Solve the riddle of the Cheshire Cat to earn your next clue!",
-            "Locate the White Rabbit and ask him where to go next!",
-            "Bring back a piece of cake from the Mad Hatter's table!"
+            {
+                day: "Jour 1",
+                mission1: {
+                    title: "Le festin du Chapelier",
+                    scenario: "Aujourd’hui, vous êtes invités au festin du Chapelier fou. Chaque joueur doit proposer un plat ou un élément fantastique pour ce festin. Cependant, certains d'entre vous pourraient corrompre le festin avec des éléments sombres.",
+                    examples: [
+                        "Une soupe à la couleur changeante, qui devient plus sombre à mesure que vous la mangez.",
+                        "Un gâteau qui murmure des secrets inquiétants lorsque vous le coupez.",
+                        "Une boisson qui vous fait perdre la mémoire pendant quelques minutes."
+                    ],
+                    twist: "Le Rire Invisible : Au cours du festin, un étrange rire invisible se fait entendre, interrompant les discussions et semant la confusion."
+                },
+                mission2: {
+                    title: "L’échiquier de la Reine Rouge",
+                    announcement: "Un échiquier est apparu dans la forêt du Pays des Merveilles. Chaque joueur reçoit une énigme liée à une pièce d’échiquier.",
+                    examples: [
+                        "Je suis la seule pièce d’échiquier qui ne peut pas reculer. Qui suis-je ? (Réponse : Le pion)",
+                        "Mon déplacement est droit mais je ne peux sauter aucune pièce. Qui suis-je ? (Réponse : La tour)"
+                    ],
+                    twist: "Les Réponses Trompeuses : Certains joueurs recevront des réponses erronées à leurs énigmes."
+                }
+            },
+            {
+                day: "Jour 2",
+                mission1: {
+                    title: "Le Lapin Blanc en retard",
+                    scenario: "Le Lapin Blanc est encore en retard. Pour le rattraper, vous devez résoudre une série de devinettes rapides.",
+                    examples: [
+                        "Qu'est-ce qui a un cœur mais ne bat jamais ? (Réponse : Une carte à jouer)",
+                        "Plus je suis vieux, plus je deviens fort. Qui suis-je ? (Réponse : Le vent)"
+                    ],
+                    twist: "Le Duel des Masques : Un coffret rempli de masques apparaît, chaque joueur peut porter un masque qui révèle des visions."
+                },
+                mission2: {
+                    title: "Le Miroir Brisé",
+                    announcement: "Un miroir s’est brisé, et ses morceaux contiennent des indices sur l’identité des traîtres.",
+                    twist: "Les Reflets Trompeurs : Les morceaux de miroir renvoient des reflets déformés."
+                }
+            },
+            {
+                day: "Jour 3",
+                mission1: {
+                    title: "La Folie du Chapelier",
+                    scenario: "Quelqu’un dans le groupe commence à perdre la tête après avoir été touché par le Chapelier fou.",
+                    twist: "Le Chemin des Possibilités : Un chemin se divise en deux, chaque joueur doit choisir un chemin qui mène à une vérité ou une illusion."
+                },
+                mission2: {
+                    title: "La Valse des Cartes",
+                    announcement: "Chaque membre du groupe reçoit une carte spéciale. Certaines cartes donnent des pouvoirs spéciaux, d’autres lancent des malédictions.",
+                    twist: "Le Double Jeu des Cartes : Certaines cartes ont un double usage."
+                }
+            }
         ];
 
-        const hints = [
-            "Look under the giant mushrooms for something shiny.",
-            "The Queen of Hearts loves red flowers.",
-            "The Cheshire Cat loves to play games with riddles.",
-            "Follow the sound of laughter to find the Mad Hatter.",
-            "Always ask the White Rabbit if you're lost!"
-        ];
+        const renderMissions = () => {
+            const missionsDiv = document.getElementById("missions");
+            missions.forEach(m => {
+                const missionHTML = `
+                    <div class="mission">
+                        <h2>${m.day}</h2>
+                        <h3>${m.mission1.title}</h3>
+                        <p>${m.mission1.scenario}</p>
+                        <h4>Exemples :</h4>
+                        <ul>${m.mission1.examples.map(example => `<li>${example}</li>`).join('')}</ul>
+                        <p><strong>Twist :</strong> ${m.mission1.twist}</p>
 
-        const missionButton = document.getElementById('mission-button');
-        const hintButton = document.getElementById('hint-button');
-        const missionText = document.getElementById('mission-text');
-        const missionBox = document.getElementById('mission-box');
-        const hintText = document.getElementById('hint-text');
-        const hintBox = document.getElementById('hint-box');
+                        <h3>${m.mission2.title}</h3>
+                        <p>${m.mission2.announcement}</p>
+                        <p><strong>Twist :</strong> ${m.mission2.twist}</p>
+                    </div>
+                `;
+                missionsDiv.innerHTML += missionHTML;
+            });
+        };
 
-        missionButton.addEventListener('click', () => {
-            const randomIndex = Math.floor(Math.random() * missions.length);
-            missionText.textContent = missions[randomIndex];
-            missionBox.style.display = 'block'; // Show the mission box
-        });
-
-        hintButton.addEventListener('click', () => {
-            const randomIndex = Math.floor(Math.random() * hints.length);
-            hintText.textContent = hints[randomIndex];
-            hintBox.style.display = 'block'; // Show the hint box
-        });
+        renderMissions();
     </script>
 </body>
 </html>
